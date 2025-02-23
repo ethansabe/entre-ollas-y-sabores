@@ -35,7 +35,9 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%; /* Ajusta según necesidad */
-    max-width: 300px; /* Evita que se haga demasiado grande */
+    width: 30%; /* Ajusta el tamaño del logo */
+    max-width: 300px; /* Evita que el logo se haga demasiado grande */
     z-index: 10; /* Asegura que esté por encima del video */
+    background: none; /* Quita cualquier fondo que pueda estar aplicado */
 }
+
