@@ -6,10 +6,11 @@ body {
 }
 
 header {
-    background-color: #d84315;
-    color: white;
-    padding: 20px;
+    background: none;
+    border: none;
+    padding: 0;
 }
+
 
 section {
     margin: 20px;
@@ -35,9 +36,13 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%; /* Ajusta el tamaño del logo */
-    max-width: 300px; /* Evita que el logo se haga demasiado grande */
+    width: 60%; /* Ajusta el tamaño del logo */
+    max-width: 460px; /* Evita que el logo se haga demasiado grande */
     z-index: 10; /* Asegura que esté por encima del video */
     background: none; /* Quita cualquier fondo que pueda estar aplicado */
+}
+main {
+    position: relative;
+    margin-top: 100vh; /* Asegura que el contenido inicie después del video */
 }
 
