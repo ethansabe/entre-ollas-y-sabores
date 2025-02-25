@@ -29,20 +29,113 @@ video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 2; /* Se asegura de que el video esté por encima de los iconos */
 }
+
 .logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%; /* Ajusta el tamaño del logo */
-    max-width: 460px; /* Evita que el logo se haga demasiado grande */
-    z-index: 10; /* Asegura que esté por encima del video */
-    background: none; /* Quita cualquier fondo que pueda estar aplicado */
+    max-width: 460px;
+    width: 60%;
+    z-index: 3; /* Se asegura de que el logo esté aún más arriba */
 }
+
 main {
     position: relative;
     margin-top: 100vh; /* Asegura que el contenido inicie después del video */
+}
+.background-section {
+    background-image: url("../assets/images/fondo/fondoPrincipal.png");
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que el fondo sea estático */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+.floating-icons-container {
+    position: fixed;  /* Para que los iconos estén siempre en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Evita que los iconos bloqueen clics en la página */
+    z-index: 1; /* Asegura que los iconos estén encima del contenido */
+}
+
+.floating-icon {
+    position: absolute;
+    width: 50px; /* Tamaño mediano */
+    height: auto;
+    opacity: 0.8;
+    animation: floatAnimation 10s infinite ease-in-out;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.bienvenidos-section {
+    position: relative;
+    width: 95%;
+    height: 95vh; /* Ocupa toda la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bienvenidos-section img {
+    width: 92%; /* Ocupa toda la pantalla en ancho */
+    height: 92vh; /* Ocupa toda la altura */
+    object-fit: cover; /* Mantiene proporciones sin distorsionar */
+    object-position: 110% 90%; /* Ajusta la posición en horizontal y vertical */
+}
+
+.fotos-bucle-container {
+    position: absolute;
+    left: 4%; /* Ajusta este valor para mover horizontalmente */
+    top: 50%; /* Ajusta este valor para mover verticalmente */
+    transform: translateY(-50%); /* Centra el contenedor verticalmente */
+    width: 35%; /* Asegura que el ancho sea suficiente */
+    height: auto; /* Ajusta la altura automáticamente */
+    background-color: transparent;
+    overflow: visible; /* Permite que la imagen se vea completamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotos-bucle-container img {
+    width: 100%; /* Ajusta el tamaño dentro del contenedor */
+    height: auto; /* Mantiene la proporción sin forzar altura */
+    max-height: 100%; /* Evita que la imagen sobrepase el contenedor */
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.logo-container {
+    position: absolute;
+    left: 0%; /* Mismo valor que fotos-bucle-container para alinearlo */
+    top: 69%; /* Ajusta la posición verticalmente */
+    width: 280px; /* Tamaño del logo */
+    height: auto;
+}
+
+.logo-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block; /* Asegura que se trate como bloque */
+    text-indent: -9999px; /* Mueve cualquier texto fuera de la vista */
 }
 
