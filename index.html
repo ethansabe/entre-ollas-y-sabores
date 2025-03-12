@@ -7,34 +7,83 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <div class="floating-icons-container"></div>
+
     <header>
         <video autoplay loop muted>
-            <source src="videos/videosportada.mp4" type="video/mp4">
+            <source src="videos/videoSportada.mp4" type="video/mp4">
             Tu navegador no soporta videos.
         </video>
         <img src="images/imageslogo.png" alt="Logo Entre Ollas y Sabores" class="logo">
     </header>
 
     <main class="background-section">
-       
         <section>
             <section id="bienvenidos" class="bienvenidos-section">
                 <div class="fotos-bucle-container">
-                    <img id="bucle-img" src="assets/images/bienvenida/fotosBucle/imagen1.png" alt="Rotación de imágenes">
+                    <img id="bucle-img" src="assets/images/bienvenida/fotosBucle/imagen1.png" alt="Rotación de imagen">
                 </div>
-            
                 <div class="logo-container">
-                    <img src="assets/images/logos/logoBienvenidos.png" alt="Logo Entre Ollas y Sabores">
+                    <img src="assets/images/logoBienvenidos.png" alt="Logo Entre Ollas y Sabores">
                 </div>
-                
                 <img src="assets/images/bienvenida/fondoBienvenida.png" alt="Bienvenidos">
             </section>
-            
-            
-        <section>
-            <h2>Nuestro Menú</h2>
-            <p>Deliciosos platillos preparados con amor y los mejores ingredientes.</p>
         </section>
+
+        <section id="menu" class="menu-section">
+            <section>
+                <img src="assets/images/Menu/fondoMenu.png" alt="Fondo del Menú" class="menu-background">
+                <img src="assets/images/Menu/texto.png" alt="Texto del Menú" class="menu-texto">
+                <img src="assets/images/Menu/logo.png" alt="Logo Entre Ollas y Sabores" class="menu-logo">
+                <img src="assets/images/Menu/cubiertos.png" alt="Cubiertos" class="menu-cubiertos">
+                <img src="assets/images/Menu/botonMenu.png" alt="Ver Menú" class="menu-boton" id="botonMenu">
+            </section>
+
+            <!-- Contenedor del Modal del Menú -->
+            <div class="menu-modal" id="menuModal">
+                <img src="assets/images/Menu/pestaña.png" alt="Pestaña del Menú" class="menu-popup">
+                <img src="assets/images/Menu/botonSalir.png" alt="Cerrar" class="menu-close" id="closeMenu">
+                <img src="assets/images/Menu/copiar.png" alt="Copiar" class="menu-copy" id="copyMenu">
+                <img src="assets/images/Menu/guardar.png" alt="Guardar" class="menu-save" id="saveMenu">
+
+                <div class="menu-popup">
+                    <div id="menuTexto" contenteditable="true" class="menu-texto">
+                        Escribe aquí el menú del día...
+                    </div>
+                    <img id="botonCopiar" class="menu-copiar" src="assets/images/Menu/copiar.png" alt="Copiar">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Firebase -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+    // Configuración de Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCsFka2CTu-RhsTASKT4_txnytt-xer-oA",
+        authDomain: "entre-ollas-y-sabores.firebaseapp.com",
+        databaseURL: "https://entre-ollas-y-sabores-default-rtdb.firebaseio.com",
+        projectId: "entre-ollas-y-sabores",
+        storageBucket: "entre-ollas-y-sabores.appspot.com",
+        messagingSenderId: "330542061707",
+        appId: "1:330542061707:web:90f0e176b8ecdf7e571c8e",
+        measurementId: "G-MDZMKK5VHT"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+</script>
+
+    <!-- Script principal -->
+    <script src="assets/js/script.js"></script>
+
 
         <section>
             <h2>Galería</h2>
@@ -46,9 +95,6 @@
             <p>Visítanos o llámanos para reservar tu mesa.</p>
         </section>
     </main>
-
-    <div class="floating-icons-container"></div>
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
 

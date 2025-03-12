@@ -53,6 +53,7 @@ main {
     background-attachment: fixed; /* Hace que el fondo sea estático */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
+
 .floating-icons-container {
     position: fixed;  /* Para que los iconos estén siempre en la pantalla */
     top: 0;
@@ -68,19 +69,16 @@ main {
     width: 50px; /* Tamaño mediano */
     height: auto;
     opacity: 0.8;
-    animation: floatAnimation 10s infinite ease-in-out;
+    animation: floatAnimation 5s infinite ease-in-out;
 }
 
+
 @keyframes floatAnimation {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(30px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(10px) rotate(-2deg); }
+    75% { transform: translateY(-5px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
 }
 
 .bienvenidos-section {
@@ -137,5 +135,164 @@ main {
     object-fit: contain;
     display: block; /* Asegura que se trate como bloque */
     text-indent: -9999px; /* Mueve cualquier texto fuera de la vista */
+}
+
+/* Estilos para la sección del Menú */
+.menu-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.menu-background {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: -50px;
+}
+
+.menu-texto {
+    position: absolute;
+    top: 30%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 700px;
+    height: auto;
+}
+
+.menu-logo {
+    position: absolute;
+    top: 70%;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 279px;
+    height: auto;
+}
+
+.menu-boton {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: auto;
+    cursor: pointer;
+}
+
+.menu-boton:hover {
+    transform: translateX(-50%) scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilos para el Modal */
+.menu-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-popup {
+    position: absolute;
+    width: 80%;
+    max-width: 380px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.menu-modal.show .menu-popup {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.menu-close {
+    position: absolute;
+    top: 10px;
+    right: 490px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.menu-cubiertos {
+    position: absolute;
+    top: 50%; /* Ajusta este valor para moverlo arriba o abajo */
+    left: 47%; /* Ajusta este valor para moverlo a la izquierda o derecha */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    width: 1200px; /* Ajusta el tamaño de los cubiertos */
+    height: auto;
+    animation: brincos 1s infinite ease-in-out; /* Aplica la animación */
+}
+
+@keyframes brincos {
+    0% { transform: translate(-50%, -50%) translateY(0); }
+    20% { transform: translate(-50%, -50%) translateY(-15px); }
+    40% { transform: translate(-50%, -50%) translateY(0); }
+    60% { transform: translate(-50%, -50%) translateY(-10px); }
+    80% { transform: translate(-50%, -50%) translateY(0); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+.menu-copiar {
+    position: absolute;
+    bottom: -240px;  /* Ajusta la distancia desde abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; /* Tamaño del botón */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-copiar:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.menu-copiar {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-modal.show .menu-copiar {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes palpitar {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+.menu-modal.show .menu-copiar {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    animation: palpitar 1s infinite ease-in-out; /* Aplica la animación */
 }
 
