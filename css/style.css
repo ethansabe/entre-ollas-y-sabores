@@ -240,10 +240,10 @@ main {
 
 .menu-cubiertos {
     position: absolute;
-    top: 50%; /* Ajusta este valor para moverlo arriba o abajo */
+    top: 55%; /* Ajusta este valor para moverlo arriba o abajo */
     left: 47%; /* Ajusta este valor para moverlo a la izquierda o derecha */
     transform: translate(-50%, -50%); /* Centra la imagen */
-    width: 1200px; /* Ajusta el tamaño de los cubiertos */
+    width: 1350px; /* Ajusta el tamaño de los cubiertos */
     height: auto;
     animation: brincos 1s infinite ease-in-out; /* Aplica la animación */
 }
