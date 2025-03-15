@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entre Ollas y Sabores</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -110,7 +111,15 @@
             <h2>Contacto</h2>
             <p>Visítanos o llámanos para reservar tu mesa.</p>
         </section>
+        
     </main>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registrado', reg))
+            .catch(err => console.error('Error registrando Service Worker', err));
+        }
+      </script>      
 </body>
 </html>
 
